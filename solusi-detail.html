@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail Solusi Ruangan | Teknologi Visual Indonesia (TVI)</title>
+    <meta
+      name="description"
+      content="Detail arsitektur solusi audio visual dan sistem integrasi ruangan dari Teknologi Visual Indonesia."
+    />
+    <link rel="icon" type="image/png" href="asset/img/tvi-emblem.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Site Header -->
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Teknologi Visual Indonesia">
+        <div class="brand-logo-frame">
+          <img class="brand-logo" src="asset/img/tvi-emblem.png" alt="TVI Emblem Logo" />
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">TVI</span>
+          <span class="brand-subtitle">Teknologi Visual Indonesia</span>
+        </div>
+      </a>
+
+      <button class="nav-toggle" aria-label="Buka navigasi" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" aria-label="Navigasi utama">
+        <a href="index.html">Beranda</a>
+
+        <!-- Produk Mega Menu -->
+        <div class="nav-item has-mega">
+          <a href="produk.html">
+            Produk
+            <svg class="nav-arrow" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" /></svg>
+          </a>
+          <div class="mega-menu product-mega">
+            <div class="mega-panel">
+              <h3>Display System</h3>
+              <a href="produk-detail.html?kategori=led-display">LED Display Indoor & Outdoor<span class="desc">Pixel pitch P1.2 hingga P4.8 modular</span></a>
+              <a href="produk-detail.html?kategori=interactive-panel">Interactive Flat Panel<span class="desc">Layar sentuh 4K dengan AI Whiteboard</span></a>
+              <a href="produk-detail.html?kategori=projector">Laser Projector<span class="desc">Hingga 12.000 ANSI Lumens</span></a>
+              <a href="produk-detail.html?kategori=projection-screen">Motorized Tension Screen<span class="desc">Bidang pantul presisi tanpa kerut</span></a>
+            </div>
+            <div class="mega-panel">
+              <h3>Audio & Konferensi</h3>
+              <a href="produk-detail.html?kategori=conference-camera">Conference Camera PTZ<span class="desc">AI Auto-framing & Tracking 4K</span></a>
+              <a href="produk-detail.html?kategori=microphone-system">Microphone System & DSP<span class="desc">Ceiling beamforming & Dante Audio</span></a>
+              <a href="produk-detail.html?kategori=speaker-amplifier">Speaker & Amplifier<span class="desc">Distribusi suara merata & jernih</span></a>
+              <a href="produk-detail.html?kategori=video-processor">Video Wall Processor<span class="desc">Multi-window PIP, ultra-low latency</span></a>
+            </div>
+            <div class="mega-panel">
+              <h3>Kontrol & Otomasi</h3>
+              <a href="produk-detail.html?kategori=control-panel">Control Touch Panel<span class="desc">Satu sentuhan kontrol skenario</span></a>
+              <a href="produk-detail.html?kategori=matrix-switcher">Matrix Switcher & AV-over-IP<span class="desc">Distribusi sinyal 4K tanpa jeda</span></a>
+              <a href="produk-detail.html?kategori=digital-signage">Digital Signage & CMS<span class="desc">Manajemen konten cloud 24/7</span></a>
+              <a href="produk-detail.html?kategori=room-automation">Room Automation<span class="desc">Sensor kehadiran & automasi</span></a>
+            </div>
+            <div class="mega-feature-card">
+              <span class="badge">Official Partner</span>
+              <h4>Katalog Perangkat Resmi</h4>
+              <p>Didukung garansi resmi distributor dan sparepart terjamin di Indonesia.</p>
+              <a class="btn-quick" href="produk.html">Lihat Semua Produk →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solusi Mega Menu -->
+        <div class="nav-item has-mega active">
+          <a class="active" href="solusi.html">
+            Solusi
+            <svg class="nav-arrow" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" /></svg>
+          </a>
+          <div class="mega-menu solution-mega">
+            <div class="mega-panel">
+              <h3>Ruang Kerja Korporat</h3>
+              <a href="solusi-detail.html?kategori=meeting-room">Meeting Room<span class="desc">Solusi rapat hybrid Zoom & Teams</span></a>
+              <a href="solusi-detail.html?kategori=boardroom">Executive Boardroom<span class="desc">Standar estetika direksi</span></a>
+              <a href="solusi-detail.html?kategori=hybrid-office">Hybrid Office<span class="desc">Huddle space & room scheduling</span></a>
+            </div>
+            <div class="mega-panel">
+              <h3>Pusat Komando & Publik</h3>
+              <a href="solusi-detail.html?kategori=command-center">Command Center 24/7<span class="desc">Video wall mission-critical</span></a>
+              <a href="solusi-detail.html?kategori=digital-signage">Commercial Signage<span class="desc">Display informasi mall & publik</span></a>
+              <a href="solusi-detail.html?kategori=auditorium">Auditorium & Ballroom<span class="desc">Visual panggung & akustik</span></a>
+            </div>
+            <div class="mega-panel">
+              <h3>Edukasi Modern</h3>
+              <a href="solusi-detail.html?kategori=smart-classroom">Smart Classroom<span class="desc">Layar interaktif & lecture capture</span></a>
+              <a href="solusi-detail.html?kategori=training-room">Training Room<span class="desc">Multi-display presentasi</span></a>
+              <a href="solusi-detail.html?kategori=campus-hall">Campus Hall<span class="desc">Digital podium & streaming</span></a>
+            </div>
+            <div class="mega-feature-card">
+              <span class="badge">Turnkey Delivery</span>
+              <h4>Desain Sesuai Ruangan</h4>
+              <p>Pemetaan akustik, pencahayaan, dan sudut pandang sebelum instalasi.</p>
+              <a class="btn-quick" href="solusi.html">Jelajahi Solusi →</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="layanan.html">Layanan</a>
+        <a href="project.html">Project</a>
+        <a href="kontak.html">Kontak</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn-header-cta" href="kontak.html">
+          <span>Konsultasi Project</span>
+          <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <!-- Page Hero -->
+      <section class="page-hero solusi-hero">
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content">
+          <span class="eyebrow">
+            <a href="solusi.html" style="color: inherit; text-decoration: underline;">Katalog Solusi</a> &nbsp;/&nbsp;
+            <span id="detailBreadcrumb">Spesifikasi Ruangan</span>
+          </span>
+          <h1 id="detailTitle">Solusi Ruangan</h1>
+          <p id="detailLead">Konfigurasi topologi perangkat audio visual yang dirancang untuk kebutuhan fasilitas modern.</p>
+        </div>
+      </section>
+
+      <!-- Detail Content -->
+      <section class="section detail-section">
+        <div class="section-container">
+          <div class="detail-layout">
+            <div class="detail-info">
+              <span class="eyebrow">Konsep Arsitektur</span>
+              <h2 id="detailHeading">Detail Solusi</h2>
+              <p id="detailDescription"></p>
+
+              <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+                <a class="btn primary" id="detailWaBtn" href="#" target="_blank" rel="noopener">
+                  <span>Konsultasikan via WhatsApp</span>
+                  <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                  </svg>
+                </a>
+                <a class="btn outline-dark" href="solusi.html">← Kembali ke Daftar Solusi</a>
+              </div>
+            </div>
+
+            <div class="detail-card">
+              <h3>Perangkat Kunci yang Diikutsertakan</h3>
+              <ul id="detailItems"></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-top">
+        <div class="footer-brand-col">
+          <a class="brand" href="index.html">
+            <div class="brand-logo-frame">
+              <img class="brand-logo" src="asset/img/tvi-emblem.png" alt="TVI Logo" />
+            </div>
+            <div class="brand-text">
+              <span class="brand-title">TVI</span>
+              <span class="brand-subtitle">Teknologi Visual Indonesia</span>
+            </div>
+          </a>
+          <p>
+            System integrator audio visual resmi di Indonesia. Spesialisasi ruang rapat hybrid,
+            command center 24/7, LED display signage, dan otomasi gedung komersial.
+          </p>
+          <div style="font-size: 13px; color: var(--slate-300); line-height: 1.6">
+            <strong>Hotline Teknis:</strong> (021) 1234-5678<br />
+            <strong>WhatsApp:</strong> +62 812-3456-7890<br />
+            <strong>Email:</strong> info@teknologivisual.com
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Solusi</h4>
+          <ul>
+            <li><a href="solusi-detail.html?kategori=meeting-room">Meeting Room Hybrid</a></li>
+            <li><a href="solusi-detail.html?kategori=command-center">Command Center 24/7</a></li>
+            <li><a href="solusi-detail.html?kategori=digital-signage">Digital Signage LED</a></li>
+            <li><a href="solusi-detail.html?kategori=smart-classroom">Smart Classroom</a></li>
+            <li><a href="solusi-detail.html?kategori=auditorium">Auditorium & Ballroom</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Produk</h4>
+          <ul>
+            <li><a href="produk-detail.html?kategori=led-display">LED Display Indoor/Outdoor</a></li>
+            <li><a href="produk-detail.html?kategori=interactive-panel">Interactive Flat Panel</a></li>
+            <li><a href="produk-detail.html?kategori=conference-camera">Conference Camera PTZ</a></li>
+            <li><a href="produk-detail.html?kategori=video-processor">Video Wall Processor</a></li>
+            <li><a href="produk-detail.html?kategori=control-panel">Room Control Automation</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Perusahaan</h4>
+          <ul>
+            <li><a href="layanan.html">Alur Layanan & SLA</a></li>
+            <li><a href="project.html">Portofolio Project</a></li>
+            <li><a href="kontak.html">Survey Lokasi & Kontak</a></li>
+            <li><a href="kontak.html">Permintaan Penawaran (RFQ)</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 PT Teknologi Visual Indonesia. All rights reserved.</div>
+        <div>Audio Visual Engineering • Certified Systems Integrator Indonesia</div>
+      </div>
+    </footer>
+
+    <!-- Floating WhatsApp Widget -->
+    <a
+      class="whatsapp-float"
+      href="https://wa.me/6281234567890?text=Halo%20Tim%20TVI,%20saya%20ingin%20konsultasi%20solusi%20ruangan."
+      target="_blank"
+      rel="noopener"
+      aria-label="Konsultasi Teknis via WhatsApp"
+    >
+      <div class="whatsapp-pill">
+        <svg viewBox="0 0 24 24">
+          <path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.5 0 .2 5.3.2 11.8c0 2.1.5 4.1 1.6 5.9L0 24l6.4-1.7a11.8 11.8 0 0 0 5.7 1.5h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.2-3.5-8.5ZM12.1 21.8c-1.7 0-3.3-.5-4.8-1.3l-.3-.2-3.8 1 1-3.7-.2-.4a9.8 9.8 0 0 1-1.5-5.3c0-5.4 4.4-9.8 9.8-9.8 2.6 0 5.1 1 6.9 2.9a9.7 9.7 0 0 1 2.9 6.9c-.2 5.5-4.6 9.9-10 9.9Zm5.4-7.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4Z" />
+        </svg>
+        <div class="whatsapp-text-badge">
+          <span>Konsultasi Cepat</span>
+          <span class="sub text-full">Online • Respon Cepat</span>
+        </div>
+      </div>
+    </a>
+
+    <script src="script.js"></script>
+  </body>
+</html>
