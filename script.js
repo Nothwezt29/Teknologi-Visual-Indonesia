@@ -129,157 +129,99 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 6000);
   }
 
-  // 4. INTERACTIVE AV PROJECT ESTIMATOR (Homepage Kalkulator)
-  const estimatorSection = document.querySelector("#estimatorSection");
-  if (estimatorSection) {
-    const state = {
-      room: "meeting", // meeting, command, led, auditorium
-      capacity: "medium", // small, medium, large
-      feature: "hybrid" // hybrid, touchscreen, 247
+  // 4. LED DISPLAY SIZING & PRICE ESTIMATOR (Dummy Formula)
+  const ledEstimator = document.querySelector("#ledEstimator");
+  if (ledEstimator) {
+    const widthInput = ledEstimator.querySelector("#ledWidth");
+    const heightInput = ledEstimator.querySelector("#ledHeight");
+    const environmentInput = ledEstimator.querySelector("#ledEnvironment");
+    const pitchInput = ledEstimator.querySelector("#ledPitch");
+    const installationInput = ledEstimator.querySelector("#ledInstallation");
+    const areaResult = ledEstimator.querySelector("#ledAreaResult");
+    const cabinetResult = ledEstimator.querySelector("#ledCabinetResult");
+    const resolutionResult = ledEstimator.querySelector("#ledResolutionResult");
+    const powerResult = ledEstimator.querySelector("#ledPowerResult");
+    const priceResult = ledEstimator.querySelector("#ledPriceResult");
+    const waButton = ledEstimator.querySelector("#ledEstimatorWa");
+
+    const pricePerSquareMeter = {
+      indoor: { "1.5": 65000000, "1.8": 55000000, "2.5": 43000000, "3.9": 34000000, "4.8": 30000000 },
+      outdoor: { "1.5": 76000000, "1.8": 66000000, "2.5": 54000000, "3.9": 42000000, "4.8": 37000000 }
     };
 
-    const roomRadios = estimatorSection.querySelectorAll("[data-room]");
-    const capRadios = estimatorSection.querySelectorAll("[data-cap]");
-    const featRadios = estimatorSection.querySelectorAll("[data-feat]");
-
-    const resBadge = estimatorSection.querySelector("#estResultBadge");
-    const resTitle = estimatorSection.querySelector("#estResultTitle");
-    const resItems = estimatorSection.querySelector("#estResultList");
-    const resWaBtn = estimatorSection.querySelector("#estWaBtn");
-
-    const configurations = {
-      "meeting-small": {
-        title: "Huddle Room / Compact Hybrid Setup",
-        items: [
-          "Display Komersial 55\" / 65\" 4K UHD Anti-Glare",
-          "All-in-one Video Bar 4K dengan Auto-Framing AI",
-          "Beamforming Microphone Array (jangkauan hingga 4 meter)",
-          "Wireless Screen Sharing Dongle (Plug & Play USB-C)",
-          "Jalur Kabel Rapi & Cable Retractor Table Box"
-        ]
-      },
-      "meeting-medium": {
-        title: "Executive Boardroom / Hybrid Meeting Setup",
-        items: [
-          "Interactive Touch Panel 75\" / 86\" 4K atau Dual Display 65\"",
-          "PTZ Camera 4K dengan Optical Zoom 12x & Speaker Tracking",
-          "Ceiling Dante Microphone Array dengan Echo Cancellation",
-          "Dedicated In-Ceiling Speakers untuk distribusi suara merata",
-          "Tabletop Touch Control Panel untuk kontrol kamera & mic 1 sentuhan"
-        ]
-      },
-      "meeting-large": {
-        title: "Large Conference Hall & Multi-Zone Hybrid",
-        items: [
-          "Large LED Video Wall P1.8 / Dual Laser Proyektor 7000 Lumens",
-          "Dual Tracking PTZ Camera (Presenter & Audience View)",
-          "Gooseneck Discussion Microphones dengan Auto-Priority",
-          "Digital Signal Processor (DSP) dengan integrasi Zoom/Teams",
-          "Master Automation System (Lighting, Motorized Blinds & Display)"
-        ]
-      },
-      "command-medium": {
-        title: "24/7 Security & Operation Monitoring Center",
-        items: [
-          "Ultra Narrow Bezel Video Wall 2x2 / 3x2 (55\" Bezel 0.88mm)",
-          "Hardware Video Wall Processor multi-window PIP & 4K Input",
-          "Matrix Switcher HDMI/HDBaseT Zero-Delay Switching",
-          "Audio Monitor & Operator Intercom System",
-          "Redundant Power Supply untuk ketahanan operasi non-stop 365 hari"
-        ]
-      },
-      "command-large": {
-        title: "Mission Critical Command Center & NOC",
-        items: [
-          "Seamless Fine-Pitch MicroLED / COB Display P1.2 High Reliability",
-          "Distributed AV-over-IP Architecture dengan Control Room Software",
-          "Multi-operator KVM Matrix Switching untuk kontrol multi-PC",
-          "Integrated Central Audio DSP & Wireless Emergency Paging",
-          "Dual Backup Controller & Hot-Swappable Module Design"
-        ]
-      },
-      "led-medium": {
-        title: "Commercial Indoor High-Resolution LED Display",
-        items: [
-          "Die-Cast Aluminum Cabinet LED P2.0 / P2.5 Indoor",
-          "High Refresh Rate 3840Hz (Sempurna untuk rekaman kamera/video)",
-          "Synchronous/Asynchronous Video Controller dengan Cloud CMS",
-          "Front Maintenance Magnet Service Tool (Mudah perawatan)",
-          "Wall-Mount Structure Kustom dengan finishing rapi"
-        ]
-      },
-      "led-large": {
-        title: "Outdoor Billboard & Large Venue Advertising LED",
-        items: [
-          "Waterproof IP65 Outdoor LED Cabinet P3.9 / P4.8 High Brightness",
-          "Kecerahan 5500-6500 Nits (Sangat terang di bawah terik matahari)",
-          "Intelligent Light Sensor (Penyesuaian otomatis siang & malam)",
-          "Remote CMS Monitoring via 4G/Cloud Schedule",
-          "Proteksi Petir & Sistem Sirkulasi Udara Pendingin Terintegrasi"
-        ]
-      },
-      "auditorium-large": {
-        title: "Auditorium, Aula Kampus & Ballroom Setup",
-        items: [
-          "LED Video Wall Backdrop P2.5 / Dual Motorized Screen 200\"",
-          "Active Line Array Sound System dengan Subwoofer terkalibrasi",
-          "Digital Audio Mixer 32-Channel dengan Wireless Stage Mics",
-          "Stage Lighting & Presenter Follow-Spot System",
-          "Multi-Camera Live Production & Streaming Studio Kit"
-        ]
-      }
+    const installationCost = {
+      wall: 25000000,
+      standing: 40000000,
+      hanging: 50000000
     };
 
-    function updateEstimator() {
-      // Lookup config
-      const key = `${state.room}-${state.capacity}`;
-      const fallbackKey = `${state.room}-large`;
-      const config = configurations[key] || configurations[fallbackKey] || configurations["meeting-medium"];
+    const installationLabel = {
+      wall: "Wall mounted",
+      standing: "Standing structure",
+      hanging: "Hanging structure"
+    };
 
-      if (resBadge) {
-        const roomNames = {
-          meeting: "Meeting Room",
-          command: "Command Center",
-          led: "LED Display",
-          auditorium: "Auditorium & Aula"
-        };
-        resBadge.textContent = `Rekomendasi Solusi • ${roomNames[state.room] || "Audio Visual"}`;
-      }
-
-      if (resTitle) resTitle.textContent = config.title;
-      if (resItems) {
-        resItems.innerHTML = config.items.map((item) => `<li>${item}</li>`).join("");
-      }
-
-      // Generate pre-filled WhatsApp link
-      if (resWaBtn) {
-        const text = encodeURIComponent(
-          `Halo Tim Teknologi Visual Indonesia (TVI), saya tertarik dengan estimasi solusi:\n` +
-          `• Kebutuhan: ${config.title}\n` +
-          `• Tipe Ruang: ${state.room}\n` +
-          `• Kapasitas: ${state.capacity}\n\n` +
-          `Mohon informasi estimasi anggaran, jadwal survey lokasi, dan ketersediaan perangkat. Terima kasih.`
-        );
-        resWaBtn.href = `https://wa.me/6281234567890?text=${text}`;
-      }
+    function clamp(value, min, max, fallback) {
+      const number = Number(value);
+      if (!Number.isFinite(number)) return fallback;
+      return Math.min(max, Math.max(min, number));
     }
 
-    function setupRadioGroup(radios, prop) {
-      radios.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          radios.forEach((b) => b.classList.remove("selected"));
-          btn.classList.add("selected");
-          state[prop] = btn.getAttribute(`data-${prop}`);
-          updateEstimator();
-        });
-      });
+    function formatDecimal(value, digits = 1) {
+      return new Intl.NumberFormat("id-ID", {
+        maximumFractionDigits: digits,
+        minimumFractionDigits: Number.isInteger(value) ? 0 : digits
+      }).format(value);
     }
 
-    setupRadioGroup(roomRadios, "room");
-    setupRadioGroup(capRadios, "capacity");
-    setupRadioGroup(featRadios, "feature");
+    function formatBudget(value) {
+      const rounded = Math.round(value / 1000000);
+      if (rounded >= 1000) {
+        return "Rp" + formatDecimal(rounded / 1000, 2) + " miliar";
+      }
+      return "Rp" + new Intl.NumberFormat("id-ID").format(rounded) + " juta";
+    }
 
-    updateEstimator();
+    function calculateLedEstimate() {
+      const width = clamp(widthInput.value, 1, 50, 4);
+      const height = clamp(heightInput.value, 1, 30, 2.5);
+      const environment = environmentInput.value;
+      const pitch = pitchInput.value;
+      const pitchValue = Number(pitch);
+      const installation = installationInput.value;
+      const area = width * height;
+      const cabinets = Math.ceil(width / 0.5) * Math.ceil(height / 0.5);
+      const resolutionWidth = Math.round((width * 1000) / pitchValue);
+      const resolutionHeight = Math.round((height * 1000) / pitchValue);
+      const powerKw = area * (environment === "outdoor" ? 0.75 : 0.55);
+      const basePrice = area * pricePerSquareMeter[environment][pitch] + installationCost[installation] + 18000000;
+      const lowPrice = Math.round((basePrice * 0.9) / 1000000) * 1000000;
+      const highPrice = Math.round((basePrice * 1.15) / 1000000) * 1000000;
+
+      areaResult.textContent = formatDecimal(area, 2) + " m2";
+      cabinetResult.textContent = cabinets + " unit";
+      resolutionResult.textContent = resolutionWidth + " x " + resolutionHeight + " px";
+      powerResult.textContent = formatDecimal(powerKw, 1) + " kW";
+      priceResult.textContent = formatBudget(lowPrice) + " - " + formatBudget(highPrice);
+
+      const message = encodeURIComponent(
+        "Halo TVI, saya ingin konsultasi estimasi videotron berikut:\n" +
+        "- Ukuran: " + width + " m x " + height + " m\n" +
+        "- Area layar: " + formatDecimal(area, 2) + " m2\n" +
+        "- Pemasangan: " + environment.toUpperCase() + ", " + installationLabel[installation] + "\n" +
+        "- Pixel pitch: P" + pitch + "\n" +
+        "- Estimasi kabinet: " + cabinets + " unit\n" +
+        "- Resolusi: " + resolutionWidth + " x " + resolutionHeight + " px\n" +
+        "- Kisaran awal: " + formatBudget(lowPrice) + " - " + formatBudget(highPrice) + "\n\n" +
+        "Mohon dibantu validasi spesifikasi, jadwal survei, dan penawaran resminya."
+      );
+
+      waButton.href = "https://wa.me/6285811448301?text=" + message;
+    }
+
+    [widthInput, heightInput].forEach((input) => input.addEventListener("input", calculateLedEstimate));
+    [environmentInput, pitchInput, installationInput].forEach((input) => input.addEventListener("change", calculateLedEstimate));
+    calculateLedEstimate();
   }
 
   // 5. PROJECT FILTER & MODAL PREVIEW (Project.html)
@@ -653,7 +595,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `• Kategori: ${title}\n\n` +
         `Mohon informasi spesifikasi teknis, rekomendasi perangkat, dan estimasi biaya instalasi. Terima kasih.`
       );
-      detailWaBtn.href = `https://wa.me/6281234567890?text=${msg}`;
+      detailWaBtn.href = `https://wa.me/6285811448301?text=${msg}`;
     }
   }
 });

@@ -164,7 +164,7 @@ p:last-child {
   width: 44px;
   height: 44px;
   border-radius: var(--radius-md);
-  background: radial-gradient(circle at 35% 35%, #0d386c, #061933);
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2342,5 +2342,1300 @@ p:last-child {
 
   .whatsapp-pill span.text-full {
     display: none;
+  }
+}
+
+/* ==========================================================================
+   TVI LED SIZING ESTIMATOR
+   ========================================================================== */
+
+.hero-estimator-col {
+  position: relative;
+  width: 100%;
+}
+
+.led-estimator {
+  padding: clamp(22px, 3vw, 32px);
+  border: 1px solid rgba(117, 231, 255, 0.28);
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(circle at top right, rgba(0, 163, 232, 0.18), transparent 36%),
+    rgba(7, 23, 44, 0.92);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+  backdrop-filter: blur(18px);
+}
+
+.led-estimator-head {
+  margin-bottom: 22px;
+}
+
+.estimator-kicker {
+  display: inline-flex;
+  margin-bottom: 8px;
+  color: var(--brand-cyan-400);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.led-estimator-head h2 {
+  margin: 0 0 8px;
+  color: var(--white);
+  font-size: clamp(24px, 3vw, 34px);
+}
+
+.led-estimator-head p {
+  margin: 0;
+  color: var(--slate-300);
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+.led-estimator-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.led-estimator-form label {
+  display: grid;
+  gap: 7px;
+  color: var(--slate-300);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.estimator-full-field {
+  grid-column: 1 / -1;
+}
+
+.led-estimator input,
+.led-estimator select {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.08);
+  font: inherit;
+  outline: none;
+}
+
+.led-estimator select option {
+  color: var(--slate-900);
+  background: var(--white);
+}
+
+.led-estimator input:focus,
+.led-estimator select:focus {
+  border-color: var(--brand-cyan-400);
+  box-shadow: 0 0 0 3px rgba(0, 163, 232, 0.16);
+}
+
+.input-unit {
+  position: relative;
+}
+
+.input-unit input {
+  padding-right: 38px;
+}
+
+.input-unit b {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  color: var(--brand-cyan-400);
+  transform: translateY(-50%);
+}
+
+.led-estimator-results {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  margin-top: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.led-estimator-results div {
+  padding: 12px 14px;
+  background: rgba(5, 20, 40, 0.9);
+}
+
+.led-estimator-results span,
+.led-price-result > span {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--slate-400);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.led-estimator-results strong {
+  color: var(--white);
+  font-size: 13px;
+}
+
+.led-price-result {
+  margin-top: 14px;
+  padding: 16px;
+  border: 1px solid rgba(0, 163, 232, 0.28);
+  border-radius: var(--radius-md);
+  background: rgba(0, 102, 204, 0.12);
+}
+
+.led-price-result strong {
+  display: block;
+  color: var(--brand-cyan-400);
+  font-size: clamp(21px, 2.5vw, 28px);
+}
+
+.led-price-result small {
+  display: block;
+  margin-top: 7px;
+  color: var(--slate-400);
+  font-size: 10.5px;
+  line-height: 1.45;
+}
+
+.estimator-wa-btn {
+  width: 100%;
+  margin-top: 14px;
+  color: var(--brand-navy-950);
+  background: linear-gradient(135deg, #8ff0ff, var(--brand-cyan-400));
+}
+
+/* Five engineering pillars */
+.pillars-grid-five {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.pillars-grid-five .pillar-card {
+  padding: 26px 20px;
+}
+
+.pillars-grid-five .pillar-card h3 {
+  font-size: 16px;
+}
+
+/* Partner logos inside footer */
+.footer-top {
+  grid-template-columns: minmax(260px, 0.9fr) minmax(480px, 1.6fr) minmax(180px, 0.55fr);
+}
+
+.footer-contact-list {
+  display: grid;
+  gap: 7px;
+  font-size: 13px;
+}
+
+.footer-contact-list a {
+  color: var(--slate-300);
+}
+
+.footer-contact-list a:hover {
+  color: var(--brand-cyan-400);
+}
+
+.footer-partners h4 {
+  margin: 0 0 18px;
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.footer-partner-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(110px, 1fr));
+  gap: 12px;
+}
+
+.footer-partner-item {
+  display: grid;
+  place-items: center;
+  min-height: 92px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.footer-partner-item img {
+  width: 100%;
+  height: 42px;
+  object-fit: contain;
+}
+
+.footer-partner-item span {
+  margin-top: 6px;
+  color: var(--slate-700);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1120px) {
+  .pillars-grid-five {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr 1.5fr;
+  }
+
+  .footer-col {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .led-estimator-form,
+  .led-estimator-results,
+  .pillars-grid-five,
+  .footer-top,
+  .footer-partner-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-col {
+    grid-column: auto;
+  }
+}
+/* Transparent TVI emblem: icon only */
+.brand-logo-frame {
+  border-radius: 0;
+  background: transparent;
+  overflow: visible;
+  box-shadow: none;
+  border: 0;
+}
+
+.brand:hover .brand-logo-frame {
+  box-shadow: none;
+}
+
+.brand-logo {
+  object-fit: contain;
+}
+/* ==========================================================================
+   TVI RESPONSIVE GRADIENT REFINEMENT
+   Palette follows the transparent TVI emblem: silver, cyan, cobalt, deep navy.
+   ========================================================================== */
+
+:root {
+  --tvi-gradient-primary: linear-gradient(135deg, #e9f8ff 0%, #74dcff 18%, #168ee8 52%, #0759b8 76%, #08295f 100%);
+  --tvi-gradient-deep: linear-gradient(145deg, #020a16 0%, #071b38 46%, #063f82 78%, #0b8ed0 100%);
+  --tvi-gradient-soft: linear-gradient(135deg, #f8fcff 0%, #e7f6ff 46%, #d9efff 100%);
+  --tvi-gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(226, 245, 255, 0.94));
+}
+
+body {
+  background:
+    radial-gradient(circle at 8% 12%, rgba(26, 184, 255, 0.07), transparent 28rem),
+    radial-gradient(circle at 92% 38%, rgba(0, 102, 204, 0.06), transparent 34rem),
+    var(--bg-page);
+}
+
+.site-header {
+  background: linear-gradient(90deg, rgba(2, 10, 22, 0.93), rgba(7, 35, 72, 0.9), rgba(4, 13, 26, 0.93));
+}
+
+.site-header.scrolled {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.97), rgba(235, 248, 255, 0.97), rgba(255, 255, 255, 0.97));
+}
+
+.hero {
+  background:
+    radial-gradient(circle at 78% 18%, rgba(26, 184, 255, 0.2), transparent 32%),
+    radial-gradient(circle at 16% 84%, rgba(0, 102, 204, 0.2), transparent 34%),
+    var(--tvi-gradient-deep);
+}
+
+.hero-bg-grid {
+  opacity: 0.38;
+}
+
+.hero h1 span.gradient-text,
+.section-title .gradient-text {
+  background: var(--tvi-gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn.primary,
+.btn-header-cta,
+.estimator-wa-btn {
+  border-color: rgba(255, 255, 255, 0.22);
+  background: var(--tvi-gradient-primary);
+  box-shadow: 0 14px 30px rgba(0, 102, 204, 0.3);
+}
+
+.btn.primary:hover,
+.btn-header-cta:hover,
+.estimator-wa-btn:hover {
+  box-shadow: 0 18px 38px rgba(0, 163, 232, 0.38);
+}
+
+.led-estimator {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(117, 231, 255, 0.2), transparent 38%),
+    linear-gradient(145deg, rgba(4, 13, 26, 0.98), rgba(8, 41, 95, 0.94));
+}
+
+.led-price-result {
+  background: linear-gradient(135deg, rgba(0, 75, 153, 0.28), rgba(0, 163, 232, 0.1));
+}
+
+.pillar-card,
+.solution-card,
+.project-card,
+.contact-form,
+.detail-card {
+  background: var(--tvi-gradient-card);
+}
+
+.pillar-icon-box {
+  background: linear-gradient(145deg, #edf9ff, #d8efff);
+  color: var(--brand-blue-600);
+}
+
+.pillar-card:hover .pillar-icon-box {
+  background: var(--tvi-gradient-primary);
+  color: var(--brand-navy-950);
+}
+
+.projects-section,
+.feature-list {
+  background: var(--tvi-gradient-soft);
+}
+
+.cta-band,
+.site-footer {
+  background:
+    radial-gradient(circle at 78% 0%, rgba(26, 184, 255, 0.14), transparent 30rem),
+    var(--tvi-gradient-deep);
+}
+
+.footer-partner-item {
+  background: linear-gradient(145deg, #ffffff, #eaf7ff);
+  box-shadow: inset 0 0 0 1px rgba(0, 102, 204, 0.05);
+}
+
+.footer-partner-item:hover {
+  border-color: rgba(26, 184, 255, 0.45);
+  transform: translateY(-2px);
+}
+
+.footer-partner-item {
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+@media (max-width: 1240px) {
+  :root {
+    --container-pad: clamp(20px, 3vw, 36px);
+  }
+
+  .site-header {
+    gap: 14px;
+  }
+
+  .site-nav {
+    gap: 18px;
+  }
+
+  .hero-container {
+    gap: 36px;
+  }
+
+  .footer-top {
+    grid-template-columns: minmax(240px, 0.9fr) minmax(420px, 1.5fr);
+  }
+
+  .footer-col {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 1120px) {
+  .hero-copy-col,
+  .hero-estimator-col {
+    width: min(760px, 100%);
+    max-width: none;
+    margin-inline: auto;
+  }
+
+  .hero-copy-col {
+    text-align: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-stats-row {
+    text-align: left;
+  }
+
+  .pillars-grid-five .pillar-card:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .footer-brand-col {
+    max-width: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .site-header {
+    padding-inline: 20px;
+  }
+
+  .brand-text {
+    max-width: 210px;
+  }
+
+  .brand-subtitle {
+    white-space: nowrap;
+  }
+
+  .section,
+  .page-hero {
+    padding-inline: 24px;
+  }
+
+  .footer-partner-grid {
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --container-pad: 18px;
+    --radius-xl: 18px;
+  }
+
+  body {
+    font-size: 14px;
+  }
+
+  .site-header,
+  .site-header.scrolled {
+    min-height: 68px;
+    padding: 10px 16px;
+  }
+
+  .brand-logo-frame {
+    width: 38px;
+    height: 38px;
+  }
+
+  .brand-text {
+    max-width: calc(100vw - 126px);
+  }
+
+  .site-nav {
+    top: 76px;
+    left: 14px;
+    right: 14px;
+    width: auto;
+    max-height: calc(100dvh - 92px);
+    background: linear-gradient(145deg, #ffffff, #eaf7ff);
+  }
+
+  .site-nav > a {
+    min-height: 46px;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero {
+    padding: 104px 18px 54px;
+  }
+
+  .hero-copy-col {
+    text-align: left;
+  }
+
+  .hero h1 {
+    font-size: clamp(34px, 10.5vw, 48px);
+    line-height: 1.05;
+  }
+
+  .hero-actions {
+    justify-content: stretch;
+    margin-bottom: 34px;
+  }
+
+  .hero-actions .btn {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .hero-stats-row {
+    gap: 12px;
+    padding-top: 22px;
+  }
+
+  .hero-stat-item {
+    padding: 13px 14px;
+    border: 1px solid rgba(117, 231, 255, 0.12);
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.045);
+  }
+
+  .led-estimator {
+    padding: 20px 16px;
+  }
+
+  .led-estimator-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 11px;
+  }
+
+  .led-estimator input,
+  .led-estimator select {
+    min-height: 46px;
+    font-size: 16px;
+  }
+
+  .led-estimator-results {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .section {
+    padding-block: 58px;
+  }
+
+  .section-header {
+    margin-bottom: 30px;
+  }
+
+  .section-title {
+    font-size: clamp(28px, 8vw, 38px);
+  }
+
+  .pillars-grid-five {
+    grid-template-columns: 1fr;
+  }
+
+  .pillars-grid-five .pillar-card:last-child {
+    grid-column: auto;
+  }
+
+  .pillar-card {
+    min-height: 0;
+  }
+
+  .project-card,
+  .project-card-wide {
+    min-height: 0;
+  }
+
+  .project-card-img-wrap {
+    aspect-ratio: 16 / 10;
+  }
+
+  .project-card figcaption {
+    padding: 20px;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .footer-col {
+    grid-column: auto;
+  }
+
+  .footer-partner-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-partner-item:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .whatsapp-float {
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .whatsapp-pill {
+    min-width: 54px;
+    min-height: 54px;
+    padding: 12px;
+    border-radius: 999px;
+  }
+
+  .whatsapp-text-badge {
+    display: none;
+  }
+}
+
+@media (max-width: 540px) {
+  .led-estimator-form,
+  .led-estimator-results {
+    grid-template-columns: 1fr;
+  }
+
+  .estimator-full-field {
+    grid-column: auto;
+  }
+
+  .led-estimator-head h2 {
+    font-size: 26px;
+  }
+
+  .led-price-result strong {
+    font-size: 22px;
+  }
+
+  .footer-partner-item {
+    min-height: 82px;
+  }
+
+  .footer-partner-item img {
+    height: 34px;
+  }
+
+  .contact-form,
+  .detail-card {
+    padding: 20px;
+  }
+
+  .page-hero {
+    min-height: 360px;
+    padding-top: 112px;
+    padding-bottom: 48px;
+  }
+}
+
+@media (max-width: 400px) {
+  .brand-subtitle {
+    display: none;
+  }
+
+  .brand-text {
+    max-width: 80px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .footer-partner-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-partner-item:last-child {
+    grid-column: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* ==========================================================================
+   TVI UI CLEANUP - restrained brand treatment and natural typography
+   ========================================================================== */
+
+:root {
+  --font-display: "Segoe UI", Arial, Helvetica, sans-serif;
+  --font-body: "Segoe UI", Arial, Helvetica, sans-serif;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+}
+
+body {
+  color: #17283c;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-display,
+.brand-title,
+.btn {
+  font-family: var(--font-display);
+  letter-spacing: -0.015em;
+}
+
+.hero {
+  background:
+    radial-gradient(circle at 82% 18%, rgba(41, 147, 255, 0.2), transparent 34%),
+    linear-gradient(145deg, #020a16 0%, #061b36 58%, #073d75 100%);
+}
+
+.hero h1 {
+  max-width: 700px;
+  font-size: clamp(40px, 4.5vw, 60px);
+  font-weight: 700;
+  line-height: 1.08;
+}
+
+.hero h1 span.gradient-text,
+.section-title .gradient-text {
+  color: #65d5ff;
+  background: none;
+  -webkit-text-fill-color: currentColor;
+}
+
+.section-title {
+  color: #0a1d34;
+  font-size: clamp(30px, 3.4vw, 46px);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.section-lead {
+  color: #52677d;
+}
+
+.eyebrow,
+.estimator-kicker {
+  color: #087ec2;
+  letter-spacing: 0.08em;
+}
+
+.btn {
+  font-weight: 600;
+}
+
+.btn.primary,
+.btn-header-cta,
+.estimator-wa-btn {
+  color: #ffffff;
+  background: linear-gradient(135deg, #0878c9, #0baadd);
+  box-shadow: 0 10px 24px rgba(0, 102, 204, 0.24);
+}
+
+.pillar-card,
+.solution-card,
+.project-card,
+.contact-form,
+.detail-card {
+  background: #ffffff;
+}
+
+.pillar-card h3,
+.project-card strong,
+.footer-col h4,
+.footer-partners h4 {
+  letter-spacing: -0.01em;
+}
+
+.pillar-card p,
+.project-card p,
+.footer-brand-col p {
+  color: #52677d;
+}
+
+/* Partner logos are shown directly, without tiles or backgrounds */
+.footer-partner-grid {
+  grid-template-columns: repeat(5, minmax(90px, 1fr));
+  align-items: center;
+  gap: 24px;
+}
+
+.footer-partner-item,
+.footer-partner-item:hover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+}
+
+.footer-partner-item img {
+  width: auto;
+  max-width: 132px;
+  height: 42px;
+  object-fit: contain;
+  opacity: 0.86;
+  filter: grayscale(1) brightness(0) invert(1);
+}
+
+.footer-partner-item span {
+  display: none;
+}
+
+.footer-partner-item:hover img {
+  opacity: 1;
+}
+
+.site-footer {
+  color: #b9cde0;
+  background:
+    radial-gradient(circle at 82% 0%, rgba(26, 184, 255, 0.12), transparent 32rem),
+    linear-gradient(145deg, #020a16, #06264d);
+}
+
+.footer-brand-col p,
+.footer-contact-list a,
+.footer-col a {
+  color: #b9cde0;
+}
+
+.footer-contact-list strong,
+.footer-col h4,
+.footer-partners h4 {
+  color: #ffffff;
+}
+
+.footer-col h4,
+.footer-partners h4 {
+  font-size: 15px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.footer-bottom {
+  color: #8faac3;
+}
+
+@media (max-width: 1120px) {
+  .footer-partner-grid {
+    grid-template-columns: repeat(5, minmax(80px, 1fr));
+    gap: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-header,
+  .site-header.scrolled,
+  .site-header.menu-open {
+    min-height: 64px;
+    padding: 10px 16px;
+  }
+
+  .site-header.menu-open {
+    color: #10243c;
+    background: rgba(255, 255, 255, 0.98);
+    border-bottom-color: #dce8f2;
+  }
+
+  .site-header.menu-open .brand-title {
+    color: #0a1d34;
+  }
+
+  .site-header.menu-open .brand-subtitle {
+    color: #087ec2;
+  }
+
+  .brand {
+    min-width: 0;
+    gap: 9px;
+  }
+
+  .brand-logo-frame {
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-title {
+    font-size: 16px;
+  }
+
+  .brand-subtitle {
+    max-width: 185px;
+    overflow: hidden;
+    color: #20b7ee;
+    font-size: 8px;
+    letter-spacing: 0.04em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .nav-toggle {
+    position: static;
+    order: 3;
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    margin-left: auto;
+    padding: 8px;
+    border-color: currentColor;
+    border-radius: 8px;
+  }
+
+  .nav-toggle span {
+    width: 20px;
+  }
+
+  .header-actions {
+    display: none;
+  }
+
+  .site-nav {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 12px;
+    right: 12px;
+    bottom: auto;
+    width: auto;
+    max-height: calc(100dvh - 88px);
+    margin: 0;
+    padding: 8px;
+    gap: 2px;
+    overflow-y: auto;
+    border: 1px solid #dce8f2;
+    border-radius: 10px;
+    color: #17283c;
+    background: #ffffff;
+    box-shadow: 0 18px 44px rgba(4, 20, 40, 0.18);
+  }
+
+  .site-nav > a,
+  .nav-item > a,
+  .site-header.scrolled .site-nav > a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 10px 12px;
+    border: 0;
+    border-radius: 7px;
+    color: #17283c;
+    background: transparent;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .site-nav > a:hover,
+  .site-nav > a.active,
+  .site-header.scrolled .site-nav > a:hover,
+  .site-header.scrolled .site-nav > a.active {
+    color: #0759a8;
+    background: #edf7fd;
+  }
+
+  .hero {
+    padding-top: 94px;
+  }
+
+  .hero h1 {
+    max-width: 440px;
+    font-size: clamp(32px, 9vw, 42px);
+    font-weight: 700;
+    line-height: 1.08;
+  }
+
+  .hero-stat-item strong {
+    font-size: 25px;
+  }
+
+  .hero-stat-item span.label {
+    color: #a8c5df;
+    font-size: 13px;
+  }
+
+  .led-estimator-head h2 {
+    font-size: 27px;
+    font-weight: 700;
+  }
+
+  .section-title {
+    font-size: clamp(28px, 7.5vw, 36px);
+  }
+
+  .footer-partner-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 24px;
+  }
+
+  .footer-partner-item:last-child {
+    grid-column: auto;
+  }
+
+  .footer-partner-item img {
+    max-width: 140px;
+    height: 38px;
+  }
+}
+
+@media (max-width: 440px) {
+  .site-header,
+  .site-header.scrolled,
+  .site-header.menu-open {
+    padding-inline: 12px;
+  }
+
+  .brand-subtitle {
+    max-width: 155px;
+  }
+
+  .hero {
+    padding-inline: 16px;
+  }
+
+  .hero h1 {
+    font-size: 31px;
+  }
+
+  .led-estimator {
+    padding: 18px 14px;
+  }
+
+  .footer-partner-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .footer-partner-item img {
+    max-width: 120px;
+    height: 34px;
+  }
+}
+
+@media (max-width: 360px) {
+  .brand-subtitle {
+    display: none;
+  }
+
+  .footer-partner-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Hero copy alignment and concise introductory content */
+.hero-container {
+  align-items: start;
+}
+
+.hero-copy-col {
+  padding-top: 48px;
+}
+
+.hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 20px;
+  color: #79dfff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.hero-kicker::before {
+  content: none;
+}
+
+.hero-intro {
+  max-width: 620px;
+  margin: 22px 0 30px;
+  color: #b9cde0;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+@media (max-width: 1120px) {
+  .hero-copy-col {
+    padding-top: 0;
+  }
+
+  .hero-intro {
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-intro {
+    margin: 18px 0 26px;
+    font-size: 15px;
+  }
+
+  .hero-kicker {
+    margin-bottom: 16px;
+    font-size: 13px;
+  }
+}
+
+/* Service path fills the desktop hero without competing with the estimator. */
+.hero-service-path {
+  position: relative;
+  margin-top: 38px;
+  padding: 25px 26px 27px;
+  overflow: hidden;
+  border: 1px solid rgba(82, 194, 236, 0.24);
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(18, 101, 157, 0.2), rgba(8, 34, 67, 0.38)),
+    rgba(8, 31, 59, 0.62);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.hero-service-path::after {
+  position: absolute;
+  right: -28px;
+  bottom: -55px;
+  width: 210px;
+  height: 150px;
+  background-image:
+    linear-gradient(rgba(68, 195, 240, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(68, 195, 240, 0.08) 1px, transparent 1px);
+  background-size: 18px 18px;
+  transform: perspective(240px) rotateX(55deg) rotateZ(-8deg);
+  content: "";
+  pointer-events: none;
+}
+
+.service-path-heading {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 23px;
+}
+
+.service-path-heading span {
+  color: #53c9f2;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.service-path-heading strong {
+  max-width: 320px;
+  color: #dceaf5;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.45;
+  text-align: right;
+}
+
+.service-path-steps {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+
+.service-path-step {
+  display: flex;
+  gap: 12px;
+  min-width: 0;
+  padding-right: 15px;
+}
+
+.service-path-step + .service-path-step {
+  padding-left: 18px;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.step-number {
+  flex: 0 0 auto;
+  color: #22bce9;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.service-path-step strong,
+.service-path-step small {
+  display: block;
+}
+
+.service-path-step strong {
+  margin-bottom: 5px;
+  color: #f7fbff;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.service-path-step small {
+  color: #8eabc3;
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+/* Smooth transition from the navy hero into the light content area. */
+.hero::after {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 76px;
+  background: linear-gradient(to bottom, rgba(242, 247, 251, 0), #f4f7fa 100%);
+  content: "";
+  pointer-events: none;
+}
+
+@media (max-width: 1120px) {
+  .hero-service-path {
+    max-width: 760px;
+    margin-inline: auto;
+    text-align: left;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-service-path {
+    margin-top: 28px;
+    padding: 21px 18px;
+  }
+
+  .service-path-heading {
+    display: block;
+    margin-bottom: 18px;
+  }
+
+  .service-path-heading strong {
+    margin-top: 7px;
+    text-align: left;
+  }
+
+  .service-path-steps {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .service-path-step + .service-path-step {
+    padding-top: 14px;
+    padding-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 0;
+  }
+
+  .hero::after {
+    height: 44px;
   }
 }
