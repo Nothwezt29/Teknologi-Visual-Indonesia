@@ -301,6 +301,61 @@ document.addEventListener("DOMContentLoaded", () => {
   const detailTitle = document.querySelector("#detailTitle");
   if (detailTitle) {
     const productDetails = {
+      "led-indoor": [
+        "LED Display Indoor",
+        "Videotron modular dengan visual tajam untuk ruang rapat, auditorium, command center, panggung, lobby, dan area komersial dalam ruangan.",
+        [
+          "Pilihan fine pitch P1.2, P1.5, P1.8, P2.0, dan P2.5",
+          "Refresh rate tinggi untuk tampilan kamera dan video yang stabil",
+          "Kabinet front service untuk perawatan dari sisi depan",
+          "Controller NovaStar atau Colorlight sesuai kebutuhan sistem",
+          "Sizing, instalasi, kalibrasi warna, dan pelatihan operator"
+        ]
+      ],
+      "led-outdoor": [
+        "LED Display Outdoor",
+        "Layar LED berkecerahan tinggi dan tahan cuaca untuk billboard, fasad gedung, stadion, area publik, serta media promosi luar ruang.",
+        [
+          "Kabinet weatherproof dengan perlindungan IP65",
+          "Pilihan pixel pitch P3.9, P4.8, P6, P8, dan P10",
+          "Brightness tinggi agar konten tetap terlihat pada siang hari",
+          "Perhitungan struktur, beban angin, grounding, dan proteksi listrik",
+          "Monitoring, preventive maintenance, dan dukungan teknis"
+        ]
+      ],
+      "lcd-videowall": [
+        "LCD Videowall",
+        "Susunan layar profesional untuk pusat pemantauan, ruang kontrol, command center, dan dashboard operasional yang berjalan terus menerus.",
+        [
+          "Panel komersial dengan bezel ultra tipis",
+          "Konfigurasi fleksibel 2x2, 3x3, 4x4, atau sesuai kebutuhan",
+          "Video wall controller untuk banyak sumber dan layout",
+          "Kalibrasi brightness dan warna antar panel",
+          "Bracket presisi serta dukungan operasi 24/7"
+        ]
+      ],
+      "security-system": [
+        "Security System",
+        "Sistem keamanan terintegrasi yang mencakup CCTV IP, perekaman, analitik video, akses kontrol, dan pemantauan terpusat.",
+        [
+          "IP camera indoor dan outdoor sesuai area pengawasan",
+          "Network video recorder dengan kapasitas penyimpanan terukur",
+          "Analitik AI untuk deteksi manusia, kendaraan, dan perimeter",
+          "Access control berbasis kartu, wajah, atau sidik jari",
+          "Integrasi monitor ruang kontrol dan akses pemantauan jarak jauh"
+        ]
+      ],
+      "audio-system": [
+        "Audio System",
+        "Sistem tata suara yang dirancang untuk artikulasi jelas dan distribusi merata pada meeting room, auditorium, ruang publik, serta tempat ibadah.",
+        [
+          "Microphone kabel, wireless, gooseneck, dan ceiling array",
+          "Digital signal processor untuk mixing, EQ, AEC, dan zoning",
+          "Speaker ceiling, column, point source, atau line array",
+          "Power amplifier yang disesuaikan dengan beban sistem",
+          "Tuning, pengukuran, dan kalibrasi suara di lokasi"
+        ]
+      ],
       "led-display": [
         "LED Display Indoor & Outdoor",
         "Panel LED modular dengan tingkat refresh rate 3840Hz, kontras tinggi, dan sudut pandang lebar 160° untuk lobby korporat, auditorium, mall signage, dan command center.",
