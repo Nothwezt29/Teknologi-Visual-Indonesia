@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 6000);
   }
 
-  // 4. LED DISPLAY SIZING & PRICE ESTIMATOR (Dummy Formula)
+  // 4. LED DISPLAY SIZING & PRICE ESTIMATOR
   const ledEstimator = document.querySelector("#ledEstimator");
   if (ledEstimator) {
     const widthInput = ledEstimator.querySelector("#ledWidth");
@@ -138,21 +138,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const pitchInput = ledEstimator.querySelector("#ledPitch");
     const installationInput = ledEstimator.querySelector("#ledInstallation");
     const areaResult = ledEstimator.querySelector("#ledAreaResult");
-    const cabinetResult = ledEstimator.querySelector("#ledCabinetResult");
     const resolutionResult = ledEstimator.querySelector("#ledResolutionResult");
     const powerResult = ledEstimator.querySelector("#ledPowerResult");
     const priceResult = ledEstimator.querySelector("#ledPriceResult");
     const waButton = ledEstimator.querySelector("#ledEstimatorWa");
 
     const pricePerSquareMeter = {
-      indoor: { "1.5": 65000000, "1.8": 55000000, "2.5": 43000000, "3.9": 34000000, "4.8": 30000000 },
-      outdoor: { "1.5": 76000000, "1.8": 66000000, "2.5": 54000000, "3.9": 42000000, "4.8": 37000000 }
-    };
-
-    const installationCost = {
-      wall: 25000000,
-      standing: 40000000,
-      hanging: 50000000
+      "1.25": { min: 27500000, max: 28600000 },
+      "1.53": { min: 23750000, max: 24700000 },
+      "1.86": { min: 14500000, max: 15080000 },
+      "2.5": { min: 11440000, max: 11880000 }
     };
 
     const installationLabel = {
@@ -174,12 +169,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }).format(value);
     }
 
-    function formatBudget(value) {
-      const rounded = Math.round(value / 1000000);
-      if (rounded >= 1000) {
-        return "Rp" + formatDecimal(rounded / 1000, 2) + " miliar";
-      }
-      return "Rp" + new Intl.NumberFormat("id-ID").format(rounded) + " juta";
+    function formatRupiah(value) {
+      return "Rp " + new Intl.NumberFormat("id-ID", {
+        maximumFractionDigits: 0
+      }).format(Math.round(value));
     }
 
     function calculateLedEstimate() {
@@ -190,19 +183,17 @@ document.addEventListener("DOMContentLoaded", () => {
       const pitchValue = Number(pitch);
       const installation = installationInput.value;
       const area = width * height;
-      const cabinets = Math.ceil(width / 0.5) * Math.ceil(height / 0.5);
       const resolutionWidth = Math.round((width * 1000) / pitchValue);
       const resolutionHeight = Math.round((height * 1000) / pitchValue);
       const powerKw = area * (environment === "outdoor" ? 0.75 : 0.55);
-      const basePrice = area * pricePerSquareMeter[environment][pitch] + installationCost[installation] + 18000000;
-      const lowPrice = Math.round((basePrice * 0.9) / 1000000) * 1000000;
-      const highPrice = Math.round((basePrice * 1.15) / 1000000) * 1000000;
+      const selectedPrice = pricePerSquareMeter[pitch];
+      const lowPrice = area * selectedPrice.min;
+      const highPrice = area * selectedPrice.max;
 
-      areaResult.textContent = formatDecimal(area, 2) + " m2";
-      cabinetResult.textContent = cabinets + " unit";
-      resolutionResult.textContent = resolutionWidth + " x " + resolutionHeight + " px";
+      areaResult.textContent = formatDecimal(area, 2) + " m\u00B2";
+      resolutionResult.textContent = resolutionWidth + " \u00D7 " + resolutionHeight + " px";
       powerResult.textContent = formatDecimal(powerKw, 1) + " kW";
-      priceResult.textContent = formatBudget(lowPrice) + " - " + formatBudget(highPrice);
+      priceResult.textContent = formatRupiah(lowPrice) + " - " + formatRupiah(highPrice);
 
       const message = encodeURIComponent(
         "Halo TVI, saya ingin konsultasi estimasi videotron berikut:\n" +
@@ -210,9 +201,9 @@ document.addEventListener("DOMContentLoaded", () => {
         "- Area layar: " + formatDecimal(area, 2) + " m2\n" +
         "- Pemasangan: " + environment.toUpperCase() + ", " + installationLabel[installation] + "\n" +
         "- Pixel pitch: P" + pitch + "\n" +
-        "- Estimasi kabinet: " + cabinets + " unit\n" +
         "- Resolusi: " + resolutionWidth + " x " + resolutionHeight + " px\n" +
-        "- Kisaran awal: " + formatBudget(lowPrice) + " - " + formatBudget(highPrice) + "\n\n" +
+        "- Harga acuan per m2: " + formatRupiah(selectedPrice.min) + " - " + formatRupiah(selectedPrice.max) + "\n" +
+        "- Kisaran awal: " + formatRupiah(lowPrice) + " - " + formatRupiah(highPrice) + "\n\n" +
         "Mohon dibantu validasi spesifikasi, jadwal survei, dan penawaran resminya."
       );
 

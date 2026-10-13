@@ -3939,6 +3939,13 @@ svg {
   margin: auto;
   object-fit: contain;
   object-position: center;
+  opacity: 1;
+  filter: none;
+}
+
+.footer-partner-item:hover img {
+  opacity: 1;
+  filter: saturate(1.08) brightness(1.05);
 }
 
 .footer-partner-item:nth-child(1) img {
@@ -3983,4 +3990,100 @@ svg {
   .footer-partner-item:nth-child(3) img { max-width: 138px; }
   .footer-partner-item:nth-child(4) img { width: 54px; }
   .footer-partner-item:nth-child(5) img { max-width: 150px; }
+}
+
+/* Light footer keeps original partner colors and dark logo details readable. */
+.site-footer {
+  color: #53677b;
+  background: #ffffff;
+  border-top: 1px solid #dce5ed;
+}
+
+.site-footer .brand-title,
+.site-footer .footer-col h4,
+.site-footer .footer-partners h4,
+.site-footer .footer-contact-list strong {
+  color: #071a2f;
+}
+
+.site-footer .brand-subtitle {
+  color: #0874c9;
+}
+
+.site-footer .footer-brand-col p,
+.site-footer .footer-contact-list a,
+.site-footer .footer-col a {
+  color: #53677b;
+}
+
+.site-footer .footer-contact-list a:hover,
+.site-footer .footer-col a:hover {
+  color: #0074c8;
+}
+
+.site-footer .footer-bottom {
+  color: #718396;
+  border-top-color: #dce5ed;
+}
+
+.site-footer .footer-bottom a {
+  color: #526b82;
+}
+
+.site-footer .footer-bottom a:hover {
+  color: #0074c8;
+}
+
+.site-footer .footer-partner-item img {
+  opacity: 1;
+  filter: none;
+}
+
+@media (min-width: 769px) {
+  .footer-partner-item,
+  .footer-partner-item:hover {
+    height: 82px;
+    min-height: 82px;
+    padding: 8px 4px;
+  }
+
+  .footer-partner-item:nth-child(1) img {
+    width: min(100%, 190px);
+    max-width: 190px;
+    max-height: 54px;
+  }
+
+  .footer-partner-item:nth-child(2) img {
+    width: 105px;
+    max-width: 78%;
+    max-height: 62px;
+  }
+
+  .footer-partner-item:nth-child(3) img {
+    width: min(100%, 175px);
+    max-width: 175px;
+    max-height: 56px;
+  }
+
+  .footer-partner-item:nth-child(4) img {
+    width: 74px;
+    max-width: 62%;
+    max-height: 64px;
+  }
+
+  .footer-partner-item:nth-child(5) img {
+    width: min(100%, 190px);
+    max-width: 190px;
+    max-height: 48px;
+  }
+}
+
+.led-estimator-results {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 540px) {
+  .led-estimator-results {
+    grid-template-columns: 1fr;
+  }
 }
