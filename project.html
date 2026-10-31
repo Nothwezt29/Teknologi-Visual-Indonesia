@@ -73,19 +73,21 @@
         <div class="section-container">
           <!-- Filter Tabs -->
           <div class="project-filters">
-            <button class="filter-btn active" data-filter="all">Semua Project (7)</button>
-            <button class="filter-btn" data-filter="government">Pemerintahan & Keamanan</button>
-            <button class="filter-btn" data-filter="commercial">Komersial & Retail</button>
-            <button class="filter-btn" data-filter="education">Pendidikan & Kampus</button>
-            <button class="filter-btn" data-filter="venue">Tempat Ibadah & Venue</button>
+            <button class="filter-btn active" data-filter="government">Pemerintahan</button>
+            <button class="filter-btn" data-filter="company">Perusahaan dan Integrator Sistem</button>
+            <button class="filter-btn" data-filter="agency">Agensi Periklanan &amp; Media luar ruangan digital</button>
+            <button class="filter-btn" data-filter="retail">Ritel &amp; Pusat perbelanjaan</button>
+            <button class="filter-btn" data-filter="education">Pendidikan</button>
           </div>
 
-          <!-- Project Grid -->
-          <div class="project-card-grid">
+          <!-- Project Carousel -->
+          <div class="project-carousel" data-project-carousel aria-label="Galeri project TVI">
+            <div class="project-carousel-viewport" tabindex="0">
+              <div class="project-card-grid">
             <!-- Project 1: Mabes Polri -->
-            <figure class="project-card project-card-wide" data-category="government">
+            <figure class="project-card active" data-category="government">
               <div class="project-card-img-wrap">
-                <span class="project-card-badge">Pemerintahan & Keamanan</span>
+                <span class="project-card-badge">Pemerintahan</span>
                 <img
                   src="asset/img/projects/ditpider-mabes-polri.jpg"
                   alt="Instalasi DITPIDER Mabes Polri"
@@ -105,33 +107,75 @@
               </figcaption>
             </figure>
 
-            <!-- Project 2: Pakuwon Mall Surabaya -->
-            <figure class="project-card" data-category="commercial">
+            <figure class="project-card" data-category="government">
               <div class="project-card-img-wrap">
-                <span class="project-card-badge">Komersial & Retail</span>
+                <span class="project-card-badge">Pemerintahan</span>
+                <img src="asset/img/projects/mabes-polri.jpeg" alt="LED display Mabes Polri" loading="lazy" />
+              </div>
+              <figcaption>
+                <div class="project-meta-row"><span class="project-client-type">LED Display Terintegrasi</span><span class="project-location">Jakarta</span></div>
+                <strong>Mabes Polri</strong>
+                <p>Implementasi display visual untuk mendukung penyampaian informasi dan kebutuhan operasional institusi.</p>
+              </figcaption>
+            </figure>
+
+            <!-- Project 2: Pakuwon Mall Surabaya -->
+            <figure class="project-card" data-category="agency">
+              <div class="project-card-img-wrap">
+                <span class="project-card-badge">Agensi Periklanan &amp; Media luar ruangan digital</span>
                 <img
-                  src="asset/img/projects/pakuwon-mall-surabaya.jpg"
+                  src="asset/img/projects/pakuwon-mall-surabaya-web.jpg"
                   alt="Instalasi Pakuwon Mall Surabaya"
                   loading="lazy"
                 />
               </div>
               <figcaption>
                 <div class="project-meta-row">
-                  <span class="project-client-type">Curved LED Display</span>
+                  <span class="project-client-type">Outdoor Advertising LED</span>
                   <span class="project-location">Surabaya, Jawa Timur</span>
                 </div>
                 <strong>Pakuwon Mall Surabaya</strong>
                 <p>
-                  Display LED indoor lengkung dengan pixel pitch halus P2.5 untuk promosi visual premium,
-                  terintegrasi CMS cloud management.
+                  LED billboard luar ruang untuk kampanye visual berukuran besar dengan tampilan terang,
+                  tajam, dan mudah terlihat dari area publik.
                 </p>
+              </figcaption>
+            </figure>
+
+            <figure class="project-card" data-category="agency">
+              <div class="project-card-img-wrap">
+                <span class="project-card-badge">Agensi Periklanan &amp; Media luar ruangan digital</span>
+                <img src="asset/img/projects/pgc-senayan.png" alt="LED billboard PGC Senayan" loading="lazy" />
+              </div>
+              <figcaption>
+                <div class="project-meta-row">
+                  <span class="project-client-type">Outdoor Advertising LED</span>
+                  <span class="project-location">Senayan, Jakarta</span>
+                </div>
+                <strong>PGC Senayan</strong>
+                <p>LED billboard luar ruang untuk kampanye visual berskala besar dengan tampilan terang dan jelas di kawasan strategis.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="project-card" data-category="agency">
+              <div class="project-card-img-wrap">
+                <span class="project-card-badge">Agensi Periklanan &amp; Media luar ruangan digital</span>
+                <img src="asset/img/projects/garudacom-cibubur.png" alt="LED billboard Garudacom Cibubur" loading="lazy" />
+              </div>
+              <figcaption>
+                <div class="project-meta-row">
+                  <span class="project-client-type">Outdoor Advertising LED</span>
+                  <span class="project-location">Cibubur</span>
+                </div>
+                <strong>Garudacom Cibubur</strong>
+                <p>Media LED luar ruang pada koridor lalu lintas aktif untuk menghadirkan materi kampanye yang kuat dan mudah terlihat.</p>
               </figcaption>
             </figure>
 
             <!-- Project 3: FK Kesehatan UHAMKA -->
             <figure class="project-card" data-category="education">
               <div class="project-card-img-wrap">
-                <span class="project-card-badge">Pendidikan & Kampus</span>
+                <span class="project-card-badge">Pendidikan</span>
                 <img
                   src="asset/img/projects/fk-kesehatan-uhamka.jpg"
                   alt="Instalasi FK Kesehatan UHAMKA"
@@ -152,57 +196,57 @@
             </figure>
 
             <!-- Project 4: Pospol Harmoni -->
-            <figure class="project-card" data-category="government">
+            <figure class="project-card" data-category="agency">
               <div class="project-card-img-wrap">
-                <span class="project-card-badge">Pemerintahan & Keamanan</span>
+                <span class="project-card-badge">Agensi Periklanan &amp; Media luar ruangan digital</span>
                 <img
-                  src="asset/img/projects/pospol-harmoni.jpg"
+                  src="asset/img/projects/pospol-harmoni-web.jpg"
                   alt="Instalasi Pospol Harmoni"
                   loading="lazy"
                 />
               </div>
               <figcaption>
                 <div class="project-meta-row">
-                  <span class="project-client-type">Traffic Surveillance</span>
+                  <span class="project-client-type">Outdoor Advertising LED</span>
                   <span class="project-location">Harmoni, Jakarta Pusat</span>
                 </div>
                 <strong>Pospol Harmoni</strong>
                 <p>
-                  Sistem monitoring CCTV lalu lintas perkotaan terpusat dengan layar display industri 24 jam non-stop
-                  dan switching matrix responsif.
+                  Instalasi LED periklanan luar ruang yang tampil terang pada malam hari dan menjangkau
+                  arus kendaraan serta pejalan kaki di kawasan Harmoni.
                 </p>
               </figcaption>
             </figure>
 
             <!-- Project 5: Pospol Tugu Muda Semarang -->
-            <figure class="project-card" data-category="government">
+            <figure class="project-card" data-category="agency">
               <div class="project-card-img-wrap">
-                <span class="project-card-badge">Pemerintahan & Keamanan</span>
+                <span class="project-card-badge">Agensi Periklanan &amp; Media luar ruangan digital</span>
                 <img
-                  src="asset/img/projects/pospol-tugu-muda-semarang.jpg"
+                  src="asset/img/projects/pospol-tugu-muda-semarang-web.jpg"
                   alt="Instalasi Pospol Tugu Muda Semarang"
                   loading="lazy"
                 />
               </div>
               <figcaption>
                 <div class="project-meta-row">
-                  <span class="project-client-type">Command Monitoring</span>
+                  <span class="project-client-type">Outdoor Advertising LED</span>
                   <span class="project-location">Semarang, Jawa Tengah</span>
                 </div>
                 <strong>Pospol Tugu Muda Semarang</strong>
                 <p>
-                  Display pemantauan operasional lapangan kepolisian terpadu dengan daya tahan tinggi
-                  dan sudut pandang lebar untuk ruang kontrol shift.
+                  Media LED luar ruang berformat besar untuk penayangan kampanye digital dengan visibilitas
+                  kuat di persimpangan Tugu Muda Semarang.
                 </p>
               </figcaption>
             </figure>
 
             <!-- Project 6: JETE -->
-            <figure class="project-card" data-category="commercial">
+            <figure class="project-card" data-category="retail">
               <div class="project-card-img-wrap">
-                <span class="project-card-badge">Komersial & Retail</span>
+                <span class="project-card-badge">Ritel &amp; Pusat perbelanjaan</span>
                 <img
-                  src="asset/img/projects/jete.jpg"
+                  src="asset/img/projects/jete-web.jpg"
                   alt="Instalasi JETE Retail"
                   loading="lazy"
                 />
@@ -220,10 +264,73 @@
               </figcaption>
             </figure>
 
-            <!-- Project 7: GPDI Lestari -->
-            <figure class="project-card" data-category="venue">
+            <figure class="project-card" data-category="retail">
               <div class="project-card-img-wrap">
-                <span class="project-card-badge">Tempat Ibadah & Venue</span>
+                <span class="project-card-badge">Ritel &amp; Pusat perbelanjaan</span>
+                <img src="asset/img/projects/league-store.jpeg" alt="Digital display League Store" loading="lazy" />
+              </div>
+              <figcaption>
+                <div class="project-meta-row"><span class="project-client-type">Retail Digital Experience</span><span class="project-location">Indonesia</span></div>
+                <strong>League Store</strong>
+                <p>Display digital yang menyatu dengan interior toko untuk memperkuat komunikasi produk dan pengalaman pelanggan.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="project-card" data-category="retail">
+              <div class="project-card-img-wrap">
+                <span class="project-card-badge">Ritel &amp; Pusat perbelanjaan</span>
+                <img src="asset/img/projects/puma-store.jpeg" alt="Digital display Puma Store" loading="lazy" />
+              </div>
+              <figcaption>
+                <div class="project-meta-row"><span class="project-client-type">Brand Activation Display</span><span class="project-location">Indonesia</span></div>
+                <strong>Puma Store</strong>
+                <p>Solusi visual untuk area aktivasi merek yang membuat kampanye produk tampil lebih hidup dan menarik perhatian.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="project-card" data-category="retail">
+              <div class="project-card-img-wrap">
+                <span class="project-card-badge">Ritel &amp; Pusat perbelanjaan</span>
+                <img src="asset/img/projects/huawei-store-new.png" alt="Display Huawei Store" loading="lazy" />
+              </div>
+              <figcaption>
+                <div class="project-meta-row"><span class="project-client-type">Smart Retail Display</span><span class="project-location">Indonesia</span></div>
+                <strong>Huawei Store</strong>
+                <p>Media presentasi produk yang bersih dan modern untuk mendukung pengalaman pelanggan di area penjualan.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="project-card" data-category="agency">
+              <div class="project-card-img-wrap">
+                <span class="project-card-badge">Agensi Periklanan &amp; Media luar ruangan digital</span>
+                <img src="asset/img/projects/harapan-indah-led-periklanan-web.jpg" alt="LED periklanan Harapan Indah" loading="lazy" />
+              </div>
+              <figcaption>
+                <div class="project-meta-row"><span class="project-client-type">Outdoor Advertising LED</span><span class="project-location">Harapan Indah</span></div>
+                <strong>Harapan Indah LED Periklanan</strong>
+                <p>Videotron luar ruang dengan visual terang untuk memastikan materi promosi tetap kuat pada siang maupun malam hari.</p>
+              </figcaption>
+            </figure>
+
+            <!-- Project 7: GPDI Lestari -->
+            <figure class="project-card" data-category="company">
+              <div class="project-card-img-wrap">
+                <span class="project-card-badge">Perusahaan dan Integrator Sistem</span>
+                <img src="asset/img/projects/gpib-bukit-moria.png" alt="Sistem display GPIB Bukit Moria" loading="lazy" />
+              </div>
+              <figcaption>
+                <div class="project-meta-row">
+                  <span class="project-client-type">Integrated Display System</span>
+                  <span class="project-location">Indonesia</span>
+                </div>
+                <strong>GPIB Bukit Moria</strong>
+                <p>Sistem display terintegrasi untuk mendukung penyampaian informasi dan materi ibadah secara jelas dari berbagai sisi ruangan.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="project-card" data-category="company">
+              <div class="project-card-img-wrap">
+                <span class="project-card-badge">Perusahaan dan Integrator Sistem</span>
                 <img
                   src="asset/img/projects/gpdi-lestari.jpg"
                   alt="Instalasi GPDI Lestari"
@@ -242,28 +349,26 @@
                 </p>
               </figcaption>
             </figure>
+              </div>
+            </div>
+
+            <button class="project-carousel-btn project-carousel-prev" type="button" aria-label="Project sebelumnya">
+              <span aria-hidden="true">&#8592;</span>
+            </button>
+            <button class="project-carousel-btn project-carousel-next" type="button" aria-label="Project berikutnya">
+              <span aria-hidden="true">&#8594;</span>
+            </button>
+
+            <div class="project-carousel-footer">
+              <div class="project-carousel-count" aria-live="polite">
+                <span data-carousel-current>01</span><span>/</span><span data-carousel-total>01</span>
+              </div>
+              <div class="project-carousel-dots" aria-label="Pilih project"></div>
+              <span class="project-carousel-hint">Geser atau gunakan tombol panah</span>
+            </div>
           </div>
         </div>
       </section>
-
-      <!-- Lightbox Modal for Project Inspection -->
-      <div class="modal-backdrop" id="projectModal" aria-hidden="true">
-        <div class="modal-dialog">
-          <button class="modal-close-btn" aria-label="Tutup preview">Ã¢Å“â€¢</button>
-          <div class="modal-img-wrap">
-            <img src="" alt="Project Preview Fullscreen" />
-          </div>
-          <div class="modal-caption">
-            <div>
-              <span id="modalProjectClient" style="font-size: 11px; font-weight: 700; color: var(--brand-cyan-400); text-transform: uppercase;"></span>
-              <strong id="modalProjectTitle" style="display: block; font-size: 18px; margin-top: 4px;"></strong>
-            </div>
-            <a class="btn primary" href="kontak.html" style="min-height: 38px; padding: 0 16px; font-size: 13px;">
-              Konsultasi Solusi Serupa
-            </a>
-          </div>
-        </div>
-      </div>
 
       <!-- Feature Strip -->
       <section class="section feature-list" style="background: var(--slate-100); border-top: 1px solid var(--slate-200);">
@@ -303,6 +408,87 @@
           </div>
         </div>
       </section>
+
+      <!-- Customer Reference -->
+      <section class="customer-reference-section" aria-labelledby="customer-reference-title">
+        <div class="container">
+          <div class="customer-reference-heading">
+            <span class="eyebrow">Customer Reference</span>
+            <h2 id="customer-reference-title">Dipercaya Berbagai Institusi &amp; Brand</h2>
+            <p>Pengalaman implementasi solusi visual untuk sektor pemerintahan, ritel, pusat perbelanjaan, dan brand teknologi.</p>
+          </div>
+
+          <div class="customer-reference-grid">
+            <article class="customer-reference-card">
+              <div class="customer-reference-card-head">
+                <div>
+                  <span class="customer-reference-number">01</span>
+                  <h3>Retail &amp; Mall</h3>
+                </div>
+                <span class="customer-reference-total">6 customer</span>
+              </div>
+              <div class="customer-logo-grid customer-logo-grid-retail">
+                <div class="customer-logo-card">
+                  <img src="asset/img/customers/adidas.png" alt="Logo Adidas" loading="lazy" />
+                  <span>Adidas</span>
+                </div>
+                <div class="customer-logo-card">
+                  <img src="asset/img/customers/garmin.png" alt="Logo Garmin" loading="lazy" />
+                  <span>Garmin</span>
+                </div>
+                <div class="customer-logo-card">
+                  <img src="asset/img/customers/huawei.png" alt="Logo Huawei" loading="lazy" />
+                  <span>Huawei</span>
+                </div>
+                <div class="customer-logo-card">
+                  <img src="asset/img/customers/puma.png" alt="Logo Puma" loading="lazy" />
+                  <span>Puma</span>
+                </div>
+                <div class="customer-logo-card">
+                  <img src="asset/img/customers/doran-gadget.png" alt="Logo Doran Gadget" loading="lazy" />
+                  <span>Doran Gadget</span>
+                </div>
+                <div class="customer-logo-card">
+                  <img src="asset/img/customers/jete.png" alt="Logo JETE" loading="lazy" />
+                  <span>JETE</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="customer-reference-card">
+              <div class="customer-reference-card-head">
+                <div>
+                  <span class="customer-reference-number">02</span>
+                  <h3>Instansi Pemerintah</h3>
+                </div>
+                <span class="customer-reference-total">5 instansi</span>
+              </div>
+              <div class="customer-logo-grid customer-logo-grid-government">
+                <div class="customer-logo-card">
+                  <img src="asset/img/customers/polda-metro-jaya.png" alt="Logo Polda Metro Jaya" loading="lazy" />
+                  <span>Polda Metro Jaya</span>
+                </div>
+                <div class="customer-logo-card">
+                  <img src="asset/img/customers/bareskrim-polri.png" alt="Logo Bareskrim Polri" loading="lazy" />
+                  <span>Bareskrim Polri</span>
+                </div>
+                <div class="customer-logo-card">
+                  <img src="asset/img/customers/lemhannas-ri.png" alt="Logo Lemhannas RI" loading="lazy" />
+                  <span>Lemhannas RI</span>
+                </div>
+                <div class="customer-logo-card">
+                  <img src="asset/img/customers/perpusnas-ri.png" alt="Logo Perpustakaan Nasional RI" loading="lazy" />
+                  <span>Perpustakaan Nasional RI</span>
+                </div>
+                <div class="customer-logo-card">
+                  <img src="asset/img/customers/ditjen-imigrasi.png" alt="Logo Ditjen Imigrasi" loading="lazy" />
+                  <span>Ditjen Imigrasi</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Footer -->
@@ -322,8 +508,11 @@
             Integrated LED Display Solution untuk kebutuhan indoor, outdoor, komersial, pemerintahan, pendidikan, dan ruang publik.
           </p>
           <div class="footer-contact-list">
-            <a href="https://wa.me/628174880009" target="_blank" rel="noopener"><strong>Sales Utama:</strong> 0817-488-0009</a>
-            <a href="https://wa.me/6281717880009" target="_blank" rel="noopener"><strong>Sales Kedua:</strong> 0817-1788-0009</a>
+            <div class="footer-sales-group">
+              <strong>Sales</strong>
+              <a href="https://wa.me/628174880009" target="_blank" rel="noopener">0817-488-0009</a>
+              <a href="https://wa.me/6281717880009" target="_blank" rel="noopener">0817-1788-0009</a>
+            </div>
             <a href="mailto:teknologivisual.id@gmail.com"><strong>Email:</strong> teknologivisual.id@gmail.com</a>
             <a href="https://tviled.com"><strong>Web:</strong> tviled.com</a>
           </div>
@@ -351,8 +540,8 @@
       </div>
 
       <div class="footer-bottom">
-        <div>Ã‚Â© 2026 PT Teknologi Visual Indonesia. All rights reserved.</div>
-        <div>Integrated LED Display Solution Ã¢â‚¬Â¢ Engineering Ã¢â‚¬Â¢ Installation Ã¢â‚¬Â¢ Support</div>
+        <div>&copy; 2026 PT Teknologi Visual Indonesia. All rights reserved.</div>
+        <div>Integrated LED Display Solution &bull; Engineering &bull; Installation &bull; Support</div>
       </div>
     </footer>
 
@@ -365,7 +554,7 @@
       aria-label="Konsultasi Teknis via WhatsApp"
     >
       <div class="whatsapp-pill">
-        <svg viewBox="0 0 24 24">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
           <path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.5 0 .2 5.3.2 11.8c0 2.1.5 4.1 1.6 5.9L0 24l6.4-1.7a11.8 11.8 0 0 0 5.7 1.5h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.2-3.5-8.5ZM12.1 21.8c-1.7 0-3.3-.5-4.8-1.3l-.3-.2-3.8 1 1-3.7-.2-.4a9.8 9.8 0 0 1-1.5-5.3c0-5.4 4.4-9.8 9.8-9.8 2.6 0 5.1 1 6.9 2.9a9.7 9.7 0 0 1 2.9 6.9c-.2 5.5-4.6 9.9-10 9.9Zm5.4-7.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4Z" />
         </svg>
         <div class="whatsapp-text-badge">

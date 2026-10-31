@@ -215,77 +215,246 @@ document.addEventListener("DOMContentLoaded", () => {
     calculateLedEstimate();
   }
 
-  // 5. PROJECT FILTER & MODAL PREVIEW (Project.html)
+  // 5. PROJECT FILTER & CAROUSEL (Project.html)
   const filterBtns = document.querySelectorAll(".filter-btn");
   const projectCards = document.querySelectorAll(".project-card[data-category]");
+  const projectCarousel = document.querySelector("[data-project-carousel]");
 
-  if (filterBtns.length > 0 && projectCards.length > 0) {
-    filterBtns.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        filterBtns.forEach((b) => b.classList.remove("active"));
-        btn.classList.add("active");
+  if (projectCarousel && filterBtns.length > 0 && projectCards.length > 0) {
+    const viewport = projectCarousel.querySelector(".project-carousel-viewport");
+    const prevButton = projectCarousel.querySelector(".project-carousel-prev");
+    const nextButton = projectCarousel.querySelector(".project-carousel-next");
+    const dotsWrap = projectCarousel.querySelector(".project-carousel-dots");
+    const currentNumber = projectCarousel.querySelector("[data-carousel-current]");
+    const totalNumber = projectCarousel.querySelector("[data-carousel-total]");
+    const hint = projectCarousel.querySelector(".project-carousel-hint");
+    const allSlides = Array.from(projectCards);
+    const autoDelay = 5200;
+    let visibleSlides = [];
+    let currentIndex = 0;
+    let autoTimer = null;
+    let autoStopped = false;
+    let touchStartX = 0;
 
-        const category = btn.getAttribute("data-filter");
+    const formatNumber = (number) => String(number).padStart(2, "0");
 
-        projectCards.forEach((card) => {
-          const cardCat = card.getAttribute("data-category");
-          if (category === "all" || cardCat === category) {
-            card.style.display = "flex";
-            setTimeout(() => {
-              card.style.opacity = "1";
-              card.style.transform = "translateY(0)";
-            }, 50);
-          } else {
-            card.style.opacity = "0";
-            card.style.transform = "translateY(10px)";
-            setTimeout(() => {
-              card.style.display = "none";
-            }, 200);
-          }
-        });
-      });
-    });
-  }
-
-  // Modal / Lightbox for project preview
-  const modalBackdrop = document.querySelector("#projectModal");
-  if (modalBackdrop) {
-    const modalImg = modalBackdrop.querySelector(".modal-img-wrap img");
-    const modalTitle = modalBackdrop.querySelector("#modalProjectTitle");
-    const modalClient = modalBackdrop.querySelector("#modalProjectClient");
-    const closeBtn = modalBackdrop.querySelector(".modal-close-btn");
-
-    document.querySelectorAll(".project-card").forEach((card) => {
-      card.style.cursor = "pointer";
-      card.addEventListener("click", () => {
-        const img = card.querySelector("img");
-        const title = card.querySelector("strong")?.textContent || "Detail Project";
-        const client = card.querySelector(".project-client-type")?.textContent || "";
-
-        if (modalImg && img) modalImg.src = img.src;
-        if (modalTitle) modalTitle.textContent = title;
-        if (modalClient) modalClient.textContent = client;
-
-        modalBackdrop.classList.add("open");
-        document.body.style.overflow = "hidden";
-      });
-    });
-
-    function closeModal() {
-      modalBackdrop.classList.remove("open");
-      document.body.style.overflow = "";
+    function stopAutoplay() {
+      autoStopped = true;
+      window.clearInterval(autoTimer);
+      autoTimer = null;
+      projectCarousel.classList.add("is-paused");
+      if (hint) hint.textContent = "Geser otomatis dijeda";
     }
 
-    if (closeBtn) closeBtn.addEventListener("click", closeModal);
-    modalBackdrop.addEventListener("click", (e) => {
-      if (e.target === modalBackdrop) closeModal();
+    function startAutoplay() {
+      window.clearInterval(autoTimer);
+      if (autoStopped || visibleSlides.length < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      autoTimer = window.setInterval(() => showSlide(currentIndex + 1), autoDelay);
+    }
+
+    function showSlide(nextIndex) {
+      if (!visibleSlides.length) return;
+      currentIndex = (nextIndex + visibleSlides.length) % visibleSlides.length;
+
+      allSlides.forEach((slide) => {
+        slide.classList.remove("active");
+        slide.setAttribute("aria-hidden", "true");
+      });
+
+      visibleSlides[currentIndex].classList.add("active");
+      visibleSlides[currentIndex].setAttribute("aria-hidden", "false");
+
+      Array.from(dotsWrap?.children || []).forEach((dot, index) => {
+        dot.classList.toggle("active", index === currentIndex);
+        dot.setAttribute("aria-current", index === currentIndex ? "true" : "false");
+      });
+
+      if (currentNumber) currentNumber.textContent = formatNumber(currentIndex + 1);
+      if (totalNumber) totalNumber.textContent = formatNumber(visibleSlides.length);
+    }
+
+    function buildDots() {
+      if (!dotsWrap) return;
+      dotsWrap.innerHTML = "";
+      visibleSlides.forEach((slide, index) => {
+        const dot = document.createElement("button");
+        const title = slide.querySelector("figcaption strong")?.textContent || `Project ${index + 1}`;
+        dot.type = "button";
+        dot.className = "project-carousel-dot";
+        dot.setAttribute("aria-label", `Tampilkan ${title}`);
+        dot.addEventListener("click", () => {
+          stopAutoplay();
+          showSlide(index);
+        });
+        dotsWrap.appendChild(dot);
+      });
+    }
+
+    function setCategory(category) {
+      visibleSlides = allSlides.filter((slide) =>
+        (slide.getAttribute("data-category") || "").split(/\s+/).includes(category)
+      );
+      currentIndex = 0;
+      buildDots();
+      showSlide(0);
+      startAutoplay();
+    }
+
+    function goPrevious() {
+      stopAutoplay();
+      showSlide(currentIndex - 1);
+    }
+
+    function goNext() {
+      stopAutoplay();
+      showSlide(currentIndex + 1);
+    }
+
+    filterBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        stopAutoplay();
+        filterBtns.forEach((item) => item.classList.remove("active"));
+        btn.classList.add("active");
+        setCategory(btn.getAttribute("data-filter"));
+      });
     });
 
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && modalBackdrop.classList.contains("open")) {
-        closeModal();
-      }
+    prevButton?.addEventListener("click", goPrevious);
+    nextButton?.addEventListener("click", goNext);
+
+    viewport?.addEventListener("pointerdown", stopAutoplay, { passive: true });
+    viewport?.addEventListener("touchstart", (event) => {
+      touchStartX = event.changedTouches[0].clientX;
+      stopAutoplay();
+    }, { passive: true });
+    viewport?.addEventListener("touchend", (event) => {
+      const distance = event.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(distance) < 45) return;
+      showSlide(distance > 0 ? currentIndex - 1 : currentIndex + 1);
+    }, { passive: true });
+
+    viewport?.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") goPrevious();
+      if (event.key === "ArrowRight") goNext();
     });
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) window.clearInterval(autoTimer);
+      else startAutoplay();
+    });
+
+    const initialCategory = document.querySelector(".filter-btn.active")?.getAttribute("data-filter") || "government";
+    setCategory(initialCategory);
+  }
+
+  // Homepage portfolio uses the same one-project carousel presentation.
+  const homeProjectCarousel = document.querySelector("[data-home-project-carousel]");
+
+  if (homeProjectCarousel) {
+    const viewport = homeProjectCarousel.querySelector(".project-carousel-viewport");
+    const slides = Array.from(homeProjectCarousel.querySelectorAll(".project-card"));
+    const prevButton = homeProjectCarousel.querySelector(".project-carousel-prev");
+    const nextButton = homeProjectCarousel.querySelector(".project-carousel-next");
+    const dotsWrap = homeProjectCarousel.querySelector(".project-carousel-dots");
+    const currentNumber = homeProjectCarousel.querySelector("[data-carousel-current]");
+    const totalNumber = homeProjectCarousel.querySelector("[data-carousel-total]");
+    const hint = homeProjectCarousel.querySelector(".project-carousel-hint");
+    const autoDelay = 5200;
+    let currentIndex = 0;
+    let autoTimer = null;
+    let autoStopped = false;
+    let touchStartX = 0;
+
+    const formatNumber = (number) => String(number).padStart(2, "0");
+
+    function stopHomeAutoplay() {
+      autoStopped = true;
+      window.clearInterval(autoTimer);
+      autoTimer = null;
+      homeProjectCarousel.classList.add("is-paused");
+      if (hint) hint.textContent = "Geser otomatis dijeda";
+    }
+
+    function showHomeSlide(nextIndex) {
+      if (!slides.length) return;
+      currentIndex = (nextIndex + slides.length) % slides.length;
+
+      slides.forEach((slide, index) => {
+        const isActive = index === currentIndex;
+        slide.classList.toggle("active", isActive);
+        slide.setAttribute("aria-hidden", isActive ? "false" : "true");
+      });
+
+      Array.from(dotsWrap?.children || []).forEach((dot, index) => {
+        const isActive = index === currentIndex;
+        dot.classList.toggle("active", isActive);
+        dot.setAttribute("aria-current", isActive ? "true" : "false");
+      });
+
+      if (currentNumber) currentNumber.textContent = formatNumber(currentIndex + 1);
+      if (totalNumber) totalNumber.textContent = formatNumber(slides.length);
+    }
+
+    function startHomeAutoplay() {
+      window.clearInterval(autoTimer);
+      if (autoStopped || slides.length < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      autoTimer = window.setInterval(() => showHomeSlide(currentIndex + 1), autoDelay);
+    }
+
+    function buildHomeDots() {
+      if (!dotsWrap) return;
+      dotsWrap.innerHTML = "";
+      slides.forEach((slide, index) => {
+        const dot = document.createElement("button");
+        const title = slide.querySelector("figcaption strong")?.textContent || `Project ${index + 1}`;
+        dot.type = "button";
+        dot.className = "project-carousel-dot";
+        dot.setAttribute("aria-label", `Tampilkan ${title}`);
+        dot.addEventListener("click", () => {
+          stopHomeAutoplay();
+          showHomeSlide(index);
+        });
+        dotsWrap.appendChild(dot);
+      });
+    }
+
+    function goHomePrevious() {
+      stopHomeAutoplay();
+      showHomeSlide(currentIndex - 1);
+    }
+
+    function goHomeNext() {
+      stopHomeAutoplay();
+      showHomeSlide(currentIndex + 1);
+    }
+
+    prevButton?.addEventListener("click", goHomePrevious);
+    nextButton?.addEventListener("click", goHomeNext);
+
+    viewport?.addEventListener("pointerdown", stopHomeAutoplay, { passive: true });
+    viewport?.addEventListener("touchstart", (event) => {
+      touchStartX = event.changedTouches[0].clientX;
+      stopHomeAutoplay();
+    }, { passive: true });
+    viewport?.addEventListener("touchend", (event) => {
+      const distance = event.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(distance) < 45) return;
+      showHomeSlide(distance > 0 ? currentIndex - 1 : currentIndex + 1);
+    }, { passive: true });
+
+    viewport?.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") goHomePrevious();
+      if (event.key === "ArrowRight") goHomeNext();
+    });
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) window.clearInterval(autoTimer);
+      else startHomeAutoplay();
+    });
+
+    buildHomeDots();
+    showHomeSlide(0);
+    startHomeAutoplay();
   }
 
   // 6. DYNAMIC DETAIL PAGES (produk-detail.html & solusi-detail.html)
