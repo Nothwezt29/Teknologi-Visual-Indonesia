@@ -207,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Mohon dibantu validasi spesifikasi, jadwal survei, dan penawaran resminya."
       );
 
-      waButton.href = "https://wa.me/6285811448301?text=" + message;
+      waButton.href = "https://wa.me/628174880009?text=" + message;
     }
 
     [widthInput, heightInput].forEach((input) => input.addEventListener("input", calculateLedEstimate));
@@ -641,7 +641,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `• Kategori: ${title}\n\n` +
         `Mohon informasi spesifikasi teknis, rekomendasi perangkat, dan estimasi biaya instalasi. Terima kasih.`
       );
-      detailWaBtn.href = `https://wa.me/6285811448301?text=${msg}`;
+      detailWaBtn.href = `https://wa.me/628174880009?text=${msg}`;
     }
   }
 });

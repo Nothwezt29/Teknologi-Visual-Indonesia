@@ -3919,6 +3919,7 @@ svg {
 
 /* Optical sizing for partner marks with very different aspect ratios. */
 .footer-partner-grid {
+  grid-template-columns: repeat(4, minmax(90px, 1fr));
   align-items: stretch;
 }
 
@@ -3949,15 +3950,15 @@ svg {
 }
 
 .footer-partner-item:nth-child(1) img {
-  width: min(100%, 160px);
-  max-width: 160px;
-  max-height: 42px;
+  width: 58px;
+  max-width: 55%;
+  max-height: 50px;
 }
 
 .footer-partner-item:nth-child(2) img {
-  width: 88px;
-  max-width: 70%;
-  max-height: 50px;
+  width: min(100%, 160px);
+  max-width: 160px;
+  max-height: 42px;
 }
 
 .footer-partner-item:nth-child(3) img {
@@ -3967,12 +3968,6 @@ svg {
 }
 
 .footer-partner-item:nth-child(4) img {
-  width: 58px;
-  max-width: 55%;
-  max-height: 50px;
-}
-
-.footer-partner-item:nth-child(5) img {
   width: min(100%, 168px);
   max-width: 168px;
   max-height: 40px;
@@ -3985,11 +3980,11 @@ svg {
     min-height: 62px;
   }
 
-  .footer-partner-item:nth-child(1) img { max-width: 145px; }
-  .footer-partner-item:nth-child(2) img { width: 78px; }
+  .footer-partner-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .footer-partner-item:nth-child(1) img { width: 54px; }
+  .footer-partner-item:nth-child(2) img { max-width: 145px; }
   .footer-partner-item:nth-child(3) img { max-width: 138px; }
-  .footer-partner-item:nth-child(4) img { width: 54px; }
-  .footer-partner-item:nth-child(5) img { max-width: 150px; }
+  .footer-partner-item:nth-child(4) img { max-width: 150px; }
 }
 
 /* Light footer keeps original partner colors and dark logo details readable. */
@@ -4048,15 +4043,15 @@ svg {
   }
 
   .footer-partner-item:nth-child(1) img {
-    width: min(100%, 190px);
-    max-width: 190px;
-    max-height: 54px;
+    width: 74px;
+    max-width: 62%;
+    max-height: 64px;
   }
 
   .footer-partner-item:nth-child(2) img {
-    width: 105px;
-    max-width: 78%;
-    max-height: 62px;
+    width: min(100%, 190px);
+    max-width: 190px;
+    max-height: 54px;
   }
 
   .footer-partner-item:nth-child(3) img {
@@ -4066,12 +4061,6 @@ svg {
   }
 
   .footer-partner-item:nth-child(4) img {
-    width: 74px;
-    max-width: 62%;
-    max-height: 64px;
-  }
-
-  .footer-partner-item:nth-child(5) img {
     width: min(100%, 190px);
     max-width: 190px;
     max-height: 48px;
